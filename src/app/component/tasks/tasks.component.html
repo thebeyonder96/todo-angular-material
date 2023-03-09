@@ -1,0 +1,22 @@
+<section class="relative w-full h-screen px-6 py-4 flex flex-col">
+  <div class="basis-1/2">
+    <h1 class="my-4 text-2xl font-bold flex justify-between"><span>Tasks</span> <i (click)="toggle()" class="fa-solid fa-circle-plus cursor-pointer"></i></h1>
+    <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo" [cdkDropListConnectedTo]="[doneList]"
+      class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="min-h-[60px] cursor-move shadow-md px-4 py-1 flex items-center justify-between font-semibold text-lg border-[1px] border-t-[#00000021]" *ngFor="let item of todo;index as i" cdkDrag>{{item}} <i (click)="fav(i)" [ngClass]="{'fa-solid' : favo}" class="fa-regular fa-star cursor-pointer"></i></div>
+    </div>
+  </div>
+
+  <div class="basis-1/2">
+    <h1 class="my-4 text-2xl font-bold">Completed</h1>
+    <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done" [cdkDropListConnectedTo]="[todoList]"
+    class="example-list" (cdkDropListDropped)="drop($event)">
+    <div class="min-h-[60px] cursor-move shadow-md px-4 py-1 flex items-center justify-between font-semibold text-lg border-[1px] border-t-[#00000021]" *ngFor="let item of done;index as i" cdkDrag>{{item}} <i (click)="onDelete(i)" class="fa-solid fa-trash cursor-pointer text-red-600"></i></div>
+  </div>
+</div>
+<div *ngIf="isShow" class="w-full h-[500px] backdrop-blur brightness-95 z-10 p-10 shadow-2xl absolute bottom-0 left-0 border-[1px] border-t-[#00000021] transition-all duration-500">
+  <h1 class="my-6 text-2xl font-bold drop-shadow-2xl text-center w-full mx-auto">Enter your Todo's</h1>
+  <input [(ngModel)]="todos" name="todos" type="text" class="w-full my-4 px-6 py-4 border-[1px] border-t-[#00000021] rounded-md outline-none shadow-md">
+  <button (click)="add()" class="px-12 py-4 bg-green-900 text-white rounded-md font-bold float-right shadow">Add</button>
+</div>
+</section>

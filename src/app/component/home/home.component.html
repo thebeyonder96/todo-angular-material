@@ -1,0 +1,17 @@
+<mat-toolbar class="container mx-auto shadow-xl mb-2 bg-white">
+  <div>
+    <img routerLink="" src="../../../assets/Logo.png" class="cursor-pointer p-2 ml-4 drop-shadow-2xl">
+  </div>
+</mat-toolbar>
+<mat-drawer-container class="container h-full mx-auto bg-white">
+  <mat-drawer class=" w-[300px] py-20" mode="side" opened>
+    <mat-button-toggle-group class="grid place-items-center gap-2">
+      <mat-button-toggle routerLink="" class="w-[180px] px-6 py-2 rounded-lg shadow "><div class="flex items-center font-bold gap-3"><i class="fa-solid fa-house"></i> Home</div></mat-button-toggle>
+      <mat-button-toggle routerLink="/favorite" class="w-[180px] px-6 py-2 rounded-lg shadow "><div class="flex items-center font-bold gap-3"><i class="fa-solid fa-star"></i> Favorite</div></mat-button-toggle>
+      <mat-button-toggle class="w-[180px] px-6 py-2 rounded-lg shadow "><div class="flex items-center font-bold gap-3"><i class="fa-solid fa-flag"></i> Important</div></mat-button-toggle>
+    </mat-button-toggle-group>
+  </mat-drawer>
+  <mat-drawer-content class="flex flex-col">
+    <div class="shadow"><app-tasks></app-tasks></div>
+  </mat-drawer-content>
+</mat-drawer-container>
